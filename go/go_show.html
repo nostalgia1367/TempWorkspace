@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body onload="init()">
+        <div id="myDiagramDiv" style="border: solid 1px black; width:400px; height:400px"></div>
+        <div>
+          <input type="checkbox" id="alpha" name="alpha" checked>
+          <label for="alpha">Show Alpha</label>
+           <input type="checkbox" id="beta" name="beta" checked>
+          <label for="beta">Show beta</label>
+           <input type="checkbox" id="delta" name="delta" checked>
+          <label for="alpha">Show delta</label>
+           <input type="checkbox" id="gamma" name="gamma" checked>
+          <label for="alpha">Show Gamma</label>
+        </div>
+        <p><a href="https://gojs.net"/>gojs.net<a/></p>
+
+
+
+        <script>
+function init() {
+  var $ = go.GraphObject.make;
+
+  myDiagram = $(go.Diagram, "myDiagramDiv", {
+    initialContentAlignment: go.Spot.Center,
+    "undoManager.isEnabled": true
+  });
+
+  // define a simple Node template
+  myDiagram.nodeTemplateMap.add("",
+       $(
+      go.Node,
+      "Auto", // the Shape will go around the TextBlock
+      $(
+        go.Shape,
+        "RoundedRectangle",
+        { strokeWidth: 0 },
+        // Shape.fill is bound to Node.data.color
+        new go.Binding("fill", "color")
+      ),
+      $(
+        go.TextBlock,
+        { margin: 8 }, // some room around the text
+        // TextBlock.text is bound to Node.data.key
+        new go.Binding("text", "key")
+      )
+    )
+  );
+  myDiagram.nodeTemplateMap.add(
+    "Pen",
+    $(
+      go.Node,
+      "Auto", // the Shape will go around the TextBlock
+      $(
+        go.Shape,
+        "RoundedRectangle",
+        { strokeWidth: 0 },
+        // Shape.fill is bound to Node.data.color
+        new go.Binding("fill", "color")
+      ),
+      $(
+        go.TextBlock,
+        { margin: 8 }, // some room around the text
+        // TextBlock.text is bound to Node.data.key
+        new go.Binding("text", "key")
+      )
+    )
+  );
+
+
+  // but use the default Link template, by not setting Diagram.linkTemplate
+
+  // create the model data that will be represented by Nodes and Links
+  myDiagram.model = new go.GraphLinksModel(
+    [
+      { key: "Alpha", color: "lightblue" },
+      { key: "Beta", color: "orange", category: "Pen" },
+      { key: "Beta1", color: "blue", category: "Pen" },
+      { key: "Gamma", color: "lightgreen" },
+      { key: "Delta", color: "pink" }
+    ],
+    [
+      { from: "Alpha", to: "Beta" },
+      { from: "Alpha", to: "Gamma" },
+      { from: "Beta", to: "Beta" },
+      { from: "Gamma", to: "Delta" },
+      { from: "Delta", to: "Alpha" }
+    ]
+  );
+}
+
+document.getElementById("alpha").addEventListener("change", function(e) {
+  var alpha = myDiagram.findNodeForKey("Alpha");
+  myDiagram.startTransaction("toggle visibility");
+  alpha.visible = e.target.checked;
+  myDiagram.commitTransaction("toggle visibility");
+});
+document.getElementById("delta").addEventListener("change", function(e) {
+  var alpha = myDiagram.findNodeForKey("Delta");
+  myDiagram.startTransaction("toggle visibility");
+  alpha.visible = e.target.checked;
+  myDiagram.commitTransaction("toggle visibility");
+});
+document.getElementById("beta").addEventListener("change", function(e) {
+  myDiagram.commit(function(d) {
+      d.findNodesByExample({ category: "Pen" })
+          .each(function(n) { n.visible = e.target.checked; });
+    }, "toggled visibility of Pens");
+});
+document.getElementById("gamma").addEventListener("change", function(e) {
+  var alpha = myDiagram.findNodeForKey("Gamma");
+  myDiagram.startTransaction("toggle visibility");
+  alpha.visible = e.target.checked;
+  myDiagram.commitTransaction("toggle visibility");
+});
+
+
+        </script>
+</body>
+</html>

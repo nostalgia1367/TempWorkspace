@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    https://use.fontawesome.com/releases/v5.6.1/css/all.css
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <style>
+/* basic style */
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c2026;
+}
+
+/* menu style */
+.menu {
+  width: calc(54px * 4 + 30px * 3);
+  height: 54px;
+  margin: 0 auto;
+  -webkit-filter: url("#goo");
+  filter: url("#goo");
+}
+ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+svg {
+  overflow: hidden;
+}
+.ico01 {
+  background-color: #d92567;
+  position: relative;
+  z-index: 4;
+}
+.ico02 {
+  background-color: #d91e85;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 3;
+}
+.ico03 {
+  background-color: #f24405;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
+  z-index: 2;
+}
+.ico04 {
+  background-color: #f23030;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+  z-index: 1;
+}
+.move-ico {
+  position: absolute;
+  top: 0;
+}
+.active {
+  & .ico02 {
+    transform: translateX(calc(54px + 30px));
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+  }
+  & .ico03 {
+    transform: translateX(calc(54px * 2 + 30px * 2));
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
+  }
+  & .ico04 {
+    transform: translateX(calc(54px * 3 + 30px * 3));
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+/* menu-object style */
+.menu-object {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: calc(54px * 4 + 30px * 3);
+  height: 54px;
+  & .ico01::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    height: 24px;
+    margin: auto;
+    background-color: #fff;
+    transition: transform .8s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  & .ico01::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 4px;
+    margin: auto;
+    background-color: #fff;
+    transition: transform .8s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  & .link{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    line-height: 1;
+    & i{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+  & .link01{
+    font-size: 26px;
+  }
+  & .link02{
+    font-size: 30px;
+  }
+  & .link03{
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+.active {
+  & .menu-object {
+    & .ico01 {
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+    </style>
+    <div class="wrapper">
+        <div class="menu">
+            <ul class="toggle">
+                <li class="ico01"></li>
+                <li class="move-ico ico02"></li>
+                <li class="move-ico ico03"></li>
+                <li class="move-ico ico04"></li>
+            </ul>
+            <!-- filters -->
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+                <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="joint" />
+                </filter>
+                </defs>
+            </svg>
+        </div>
+        <div class="menu-object">
+            <ul class="toggle">
+                <li class="ico01"></li>
+                <li class="move-ico ico02">
+                    <a href="https://codepen.io/hisamikurita" target="_blank" class="link link01">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                </li>
+                <li class="move-ico ico03">
+                    <a href="https://github.com/hisamikurita" target="_blank" class="link link02">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="move-ico ico04">
+                    <a href="" target="_blank" class="link link03">
+                        <i class="fab fa-wikipedia-w"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+function toggle(){
+    $('.ico01').click(function(){
+        $('.wrapper').toggleClass('active');
+    })
+}
+
+toggle();
+
+    </script>
+</body>
+</html>

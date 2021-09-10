@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+  diagram.nodeTemplate =
+    $(go.Node, "Auto",
+      $(go.Shape, { fill: "lightgray" }),
+      $(go.Panel, "Table",
+        new go.Binding("itemArray", "people"),
+        { margin: 4,
+          defaultAlignment: go.Spot.Left,
+          itemTemplate:
+            $(go.Panel, "TableRow",
+              new go.Binding("background", "back"),
+              $(go.TextBlock, new go.Binding("text", "name"),
+                { column: 0, margin: 2, font: "bold 10pt sans-serif" }),
+              $(go.TextBlock, new go.Binding("text", "phone"),
+                { column: 1, margin: 2 }),
+              $(go.TextBlock, new go.Binding("text", "loc"),
+                { column: 2, margin: 2 })
+            )  // end of itemTemplate
+        })
+    );
+
+  diagram.model =
+    $(go.GraphLinksModel,
+      {
+        nodeDataArray: [
+          { key: "group1",
+            people: [
+              { name: "Alice", phone: "2345", loc: "C4-E18" },
+              { name: "Bob", phone: "9876", loc: "E1-B34", back: "red" },
+              { name: "Carol", phone: "1111", loc: "C4-E23" },
+              { name: "Ted", phone: "2222", loc: "C4-E197" }
+            ] },
+          { key: "group2",
+            people: [
+              { name: "Robert", phone: "5656", loc: "B1-A27" },
+              { name: "Natalie", phone: "5698", loc: "B1-B6" }
+            ] }
+        ],
+        linkDataArray: [
+          { from: "group1", to: "group2" }
+        ]
+      }
+    );
+
+
+    </script>
+</body>
+</html>

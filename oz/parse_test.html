@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Document</title>
+    <script src="jquery-1.12.3.js"></script>
+	<link href="bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <table class="table table-spriped table-bordered table-hover" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>이름</th>
+                    <th>타입</th>
+                </tr>
+            </thead>
+            <tbody id="grid"></tbody>
+            </table>
+
+    </div>
+
+
+    <script>
+            //{}    
+            //[]
+            var ReportCode = "1010091|거래신청서";
+            var ReportArrayData = ReportCode.split("|");
+            var form_code = ReportCode[0];
+            var form_name = ReportCode[1];
+            
+            var ReportInfo = "CLK^팀원^TextBox|GENMGR^영업점장^TextBox|CTRL_MGR^감사통할책임자^TextBox|ACNO^계좌번호^TextBox|NAME^예금주명^TextBox|ACD0^사고신고_통장증서분실^RadioButton|BB_REISU0^재발급_여^CheckBox|BB_REISU1^재발급_부^CheckBox|ACD1^사고신고_예금주사망^RadioButton|ACD3^사고신고_기타^RadioButton|ACD_ETC^사고신고기타^ComboBox|ACD4^사고신고_입금지급불가^RadioButton|ACD5^사고신고_지급정지^RadioButton|ACD6^사고신고_입금정지^RadioButton|ACD7^사고신고_일부지급정지^RadioButton|ACD_AM^사고신고_일부지급정지_금액^TextBox|RV_PY_STOP_RSN^사고신고_입금지급정지사유^TextBox|ACD8^사고신고철회^RadioButton|ACD_RPT_WDRL_ETC^사고신고철회_내용^TextBox|CHG1^변경_비밀변호^RadioButton|CHG0^변경_명의^RadioButton|CHG5^변경_부기명^RadioButton|CHG6^변경_예금의전출입^RadioButton|CHG7^변경_기타^RadioButton|CHG_ETC^변경_기타내용^ComboBox|CHG2^변경_고객정보변경^RadioButton|CI_CHG_DSC0^변경_고객정보변경_자택주소^CheckBox|CI_CHG_DSC1^변경_고객정보변경_직장주소^CheckBox|CI_CHG_DSC2^변경_고객정보변경_기타주소^CheckBox|CI_CHG_DSC3^변경_고객정보변경_자택전화^CheckBox|CI_CHG_DSC4^변경_고객정보변경_직장전화^CheckBox|CI_CHG_DSC5^변경_고객정보변경_휴대폰^CheckBox|CI_CHG_DSC6^변경_고객정보변경_기타^CheckBox|CHG_BF^변경전^TextBox|CHG_AF^변경후^TextBox|ETC_RG_RQ0^기타등록또는신청_무인감이월해제^RadioButton|ETC_RG_RQ1^기타등록또는신청_사업용계좌등록^RadioButton|ETC_RG_RQ2^기타등록또는신청_질권설정^RadioButton|ETC_RG_RQ4^기타등록또는신청_잔액조회통보제외등록^RadioButton|ETC_RG_RQ5^기타등록또는신청_거래중지편입제외등록^RadioButton|ETC_RG_RQ6^기타등록또는신청_잔액증명발급해제^RadioButton|ETC_RG_RQ7^기타등록또는신청_기타^RadioButton|ETC_RG_RQ3^기타등록또는신청_기타_내용^ComboBox|ADR^신청인주소^TextBox|HDPHN^신청인_전화번호^TextBox|RRNO^신청인주민등록번호^TextBox|BZNO^신청인사업자등록번호^TextBox|AGNTADR^대리인주소^TextBox|AGNT_CTCPL^대리인_전화번호^TextBox|AGNT_RRNO^대리인주민등록번호^TextBox|DTYY^작성년도^Label|DTMM^작성월^Label|DTDD^작성일^Label|RQMN_NAME^신청인_성명^SignPad|RQMN_NAME_SIGN^신청인_서명^SignPad|AGNT_NAME^대리인_성명^SignPad|AGNT_NAME_SIGN^대리인_서명^SignPad|MSF_SNF^본인확인^TextBox|SEAL_CTRS^인감대조^TextBox";
+            var jsonArray = new Array();
+            
+            //번호/서식코드/서식ID/서식명/타입
+
+            
+            
+            $('#grid').children().remove();
+		  	var str2 = "<tr>";
+            var array2  = ReportInfo.split("|");
+
+            for(var i=0; i < array2.length; i++){
+                var array3 = array2[i].split("^");
+                $('#grid').append('<tr>');
+                    var jsonObj = new Object();
+                    jsonObj.num = (i+1);
+                    jsonObj.form_code = form_code;
+                    jsonObj.form_name = form_name;
+                for(var j=0; j < array3.length; j++){
+                    $('#grid').append('<td data="'+j+'">'+array3[j].trim()+'</td>');
+                    jsonObj.form_field_id = array3[0].trim();
+                    jsonObj.form_field_name = array3[1].trim();
+                    jsonObj.form_field_type = replaceType(array3[2].trim());
+                    
+                }
+                jsonArray.push(jsonObj);
+                $('#grid').append('</tr>');
+            }
+
+
+            console.log(jsonArray);
+            //console.log(JSON.stringify(jsonArray));
+
+            function replaceType(str) {
+                str = str.replace('Label','01-Label');
+                str = str.replace('CheckBox','02-CheckBox');
+                str = str.replace('RadioButton','03-RadioButton');
+                str = str.replace('TextBox','04-TextBox');
+                str = str.replace('ComboBox','05-ComboBox');
+                str = str.replace('NumericUpDown','06-NumericUpDown');
+                str = str.replace('DateTimePicker','07-DateTimePicker');
+                str = str.replace('ImagePicker','08-ImagePicker');
+                str = str.replace('SignPad','09-SignPad');
+                return str;
+            }
+
+
+
+        </script>
+        
+        
+</body>
+</html>
+
+<!--
+[
+    {"num":1,"form_code":"1010091","form_name":"거래신청서","form_field_id":"CLK","form_field_name":"팀원","form_field_type":"TextBox"}
+    ,{"num":2,"form_code":"1010091","form_name":"거래신청서","form_field_id":"GENMGR","form_field_name":"영업점장","form_field_type":"TextBox"
+]
+
+-->

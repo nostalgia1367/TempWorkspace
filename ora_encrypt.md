@@ -1,0 +1,1 @@
+encrypt input="test" password="!pprinzent@" algorithm="PBEWITHMD5ANDDES"

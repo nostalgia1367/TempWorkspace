@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACE Autocompletion demo</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    
+    #editor { 
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+  </style>
+</head>
+<body>
+    <p><canvas id="screen" width="800" height="500"
+        style="background: #FFFFFF; border: 5px solid black;" role="img">
+            Your browser does not support the canvas element.
+    </canvas></p>
+    
+    <p><a href="javascript:goFullScreen();">Go Fullscreen</a></p>
+
+
+
+
+    <script>
+function goFullScreen(){
+    var canvas = document.getElementById("screen");
+    if(canvas.requestFullScreen)
+        canvas.requestFullScreen();
+    else if(canvas.webkitRequestFullScreen)
+        canvas.webkitRequestFullScreen();
+    else if(canvas.mozRequestFullScreen)
+        canvas.mozRequestFullScreen();
+}
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Table To Excel (XSL) Converter Example</title>
+<link rel="stylesheet" href="bootstrap.min.css">
+<style>
+body { background-color: #fafafa; }
+.container { margin: 150px auto; max-width: 640px; }
+</style>
+</head>
+
+<body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+</ul>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+  <h1>Table To Excel (XSL) Converter Example</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><button class="btn btn-primary" onclick="$('table').tblToExcel();">Download</p>
+</div>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="jquery.tableToExcel.js"></script>
+</body>
+</html>

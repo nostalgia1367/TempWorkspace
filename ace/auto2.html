@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACE Autocompletion demo</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    
+    #editor { 
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+  </style>
+</head>
+<body>
+
+<pre id="editor"></pre>
+
+<!-- load ace -->
+<script src="lib/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="lib/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../jquery-3.4.1.min.js"></script>
+
+<script>
+
+var staticWordCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+        var wordList = ['TB_AUTH001M', 'TB_BOARD_FILE', 'TB_BOARD001M', 'TB_COM001M', 'TB_COM003M', 'TB_COM004D', 'TB_COM005M', 'TB_DQS001M', 'TB_DQS001T', 'TB_DQS002D', 'TB_DQS003C', 'TB_DQS003M', 'TB_DQS004D'
+, 'TB_DQS005M', 'TB_DQS005P', 'TB_DQS006D', 'TB_DQS007E', 'TB_DQS007ER', 'TB_DQS007M', 'TB_DQS007R', 'TB_DQS011M', 'TB_DQS012H', 'TB_DQS013M', 'TB_LOCK001M', 'TB_REQ001M'];
+        callback(null, wordList.map(function(word) {
+            return {
+                caption: word,
+                value: word,
+                meta: "TABLE"
+            };
+        }));
+
+    }
+}
+
+
+
+    // trigger extension
+    var langTools = ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/kr_theme");	//dawn, dracula, eclipse, github, gruvbox, kr_theme, monokai, nord_dark, pastel_on_dark
+    editor.resize(true);
+    editor.setShowPrintMargin(false);
+    editor.getSession().setUseWrapMode(true);
+    editor.getSession().setMode("ace/mode/sql");
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+
+    
+
+    langTools.setCompleters([staticWordCompleter])
+    // or 
+    //editor.completers = [staticWordCompleter]
+
+</script>
+
+<script src="./show_own_source.js"></script>
+</body>
+</html>
+
+<!--https://prog.world/implementing-code-completion-in-ace-editor/-->

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+  <form id='form'>
+	  <input type="file" id="upload_here" accept=".xls, .xlsx, .csv" />
+    <div id='my_file_output'></div>
+  </form>
+
+	<script src="jquery-3.4.1.min.js"></script>
+  <script src="xlsx-0.14.3.full.min.js"></script>
+  <script src='ExcelParse.js'></script>
+
+  <script>
+    var exp = new ExcelParse();
+
+    input_dom_element = document.getElementById('upload_here');
+    if(input_dom_element.addEventListener) {
+        input_dom_element.addEventListener('change', exp.handleFile, false);
+    }
+
+
+    if(!FileReader.prototype.readAsBinaryString){
+	console.log('readAsBinaryString 정의 되지 않음');
+
+	FileReader.prototype.readAsBinaryString = function (fileData){
+		var binary = '';
+		var pk = this;
+		var reader = new FileReader();
+		reader.onload = function(e){
+			var bytes = new Uint8Array(reader.result);
+			var length = bytes.byteLength;
+
+			for(var i=0; i < length; i++){
+				var a = bytes[i];
+				var b = String.fromCharCode(a)
+				binary += b;
+			}
+
+			pk.content = binary;
+			$(pk).trigger('onload');
+		};
+
+		reader.readAsArrayBuffer(fileData);
+	}
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>123123</h1>
+    <script>
+
+
+      //type1
+    //    var objJson = 
+    //        {
+    //            "returnCode": "000",
+    //            "returnMessage": "OK",
+    //            "returnValue":
+               
+    //            [{
+    //                "openForm":
+    //                {
+    //                    "formID": "formID_1050166_1",
+    //                    "controlID": "",
+    //                    "value": ""
+    //                },
+    //                "setData": {
+    //                    "formID": "setData_1",
+    //                    "controlID": "DRW_DPR",
+    //                    "value": "홍길동"
+    //                }
+    //            }
+    //            ,{
+    //                "openForm":
+    //                {
+    //                    "formID": "openForm_1050166_2",
+    //                    "controlID": "",
+    //                    "value": ""
+    //                },
+    //                "setData": {
+    //                    "formID": "setData_1050180_2",
+    //                    "controlID": "DRW_DPR",
+    //                    "value": "홍길동"
+    //                }
+    //            }
+    //            ],
+    //        }
+
+    //        console.log(objJson);
+      
+
+
+      //type2
+        var returnValue =
+            {
+                "returnCode": "000",
+                "returnMessage": "OK",
+                "returnValue":
+                    [{
+                        "functionname": "openForm",
+                        "formID": "formID_1050166_1",
+                        "controlID": "",
+                        "value": ""
+                    },
+                    {
+                        "functionname": "setdata",
+                        "formID": "setData_1",
+                        "controlID": "DRW_DPR",
+                        "value": "홍길동"
+                    },
+                    {
+                        "functionname": "openForm",
+                        "formID": "formID_1050166_2",
+                        "controlID": "",
+                        "value": ""
+                    },
+                    {
+                        "functionname": "setdata",
+                        "formID": "setData_2",
+                        "controlID": "DRW_DPR",
+                        "value": "홍길동"
+                    }
+                    ]
+
+            }
+        
+        console.log(JSON.stringify(returnValue));
+        
+        
+
+        console.log(Object.keys(returnValue).length);
+        console.log(returnValue.length);
+
+        
+
+    //    {
+    //         "returnCode": "000",
+    //             "returnMessage": "OK",
+    //                 "returnValue":
+    //         {
+                
+    //             {
+    //                 "functionname" : "openForm"
+    //                 "formID": "1050166",
+    //                     "controlID": "",
+    //                         "value": ""
+    //             },
+    //             "setData": {
+    //                 "formID": "1050180",
+    //                     "controlID": "DRW_DPR",
+    //                         "value": "홍길동"
+    //             }
+    //         }
+    //     }
+    </script>
+</body>
+</html>

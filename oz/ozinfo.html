@@ -1,0 +1,169 @@
+<html>
+
+title-st
+
+<meta charset="UTF-8"/>
+  <head>
+	<script src="jquery-3.4.1.min.js"></script>
+	<link href="bootstrap.css" rel="stylesheet">
+
+<script>
+/*20201202 이 재용 추가*/
+String.prototype.replaceAll = function(org, dest) {
+    return this.split(org).join(dest);
+}
+String.prototype.escapeSpecialChars = function() {
+    return this.replace(/\\n/g, "\\n")
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/"/g, '\\"')
+               .replace(/\\f/g, "\\f")
+			   .replace(/\"/g, '\"')
+			   .replace(/,id=/g, '\|')
+			   .replace(/\,id=/g, '\|')
+			   .replace(/\,id\=/g, '\|')
+			   .replace(/,name=/g, '\|')
+			   .replace(/,name=/g, '\|')
+			   .replace(/\,name=/g, '\|')
+			   .replace(/\,name\=/g, '\|')
+               ;
+};
+
+function fnMove(e){
+	var offset = $('#grid').offset();
+	$('html , body').animate({scrollTop : offset.top}, 400);
+}
+</script>
+
+
+    <script language="JavaScript">
+			function OZEFormInputEventCommand_OZViewer(docindex, formid, eventname, mainscreen) {
+				console.log("eventname = " + eventname);
+				var type = OZViewer.Document.TriggerExternalEventByDocIndex(docindex, formid,"","f_GetInputType","");
+//				if(eventname == "OnValueChanged" && type != "TextBox") {
+//					console.log("eventname = " + eventname + "    type = " +type);
+//					OZViewer.Document.TriggerExternalEventByDocIndex(docindex, "","","f_SetBalloonInit","");
+//				}
+				if(eventname == "OnKillFocus" ) {
+//					console.log("eventname = " + eventname + "    type" +type);
+//					OZViewer.Document.TriggerExternalEventByDocIndex(docindex, "","","f_SetBalloonInit","");
+				}
+			}
+			function ValidityCheck() {		
+				var validity = OZViewer.GetInformation("INPUT_CHECK_VALIDITY");
+			}
+			
+			function xml() {		
+				
+				OZViewer.Document.TriggerExternalEventByDocIndex(0, "","1111","f_ECC_value","");
+			}
+			
+			function OZUserEvent_OZViewer(param1, param2, param3, docindex) {
+				alert("Parameter1 : " + param1);
+				alert("Parameter2 : " + param2);
+				alert("Parameter3 : " + param3);
+				alert("Report Index : " + docindex);
+			}
+        
+      function ozCall(){
+      	OZViewer.Script("closeall");
+      	var reportNm = document.getElementById('reportNm').value;
+      	if ( reportNm == "" ){
+      		 reportNm = "1010002";
+      	}
+      	
+      	var param = "connection.servlet=http://16.24.144.138:9000/oz80/server.ozsvrt" + "\n";
+  					param += "connection.reportname=" + reportNm + ".ozr" +  "\n";
+      			param += "information.debug=true" +  "\n";
+      			param += "viewer.external_functions_path=ozp://ozf/common.ozf" +  "\n";
+      			param += "viewer.showthumbnail=true" +  "\n";
+						param += "global.concatpage=true" +  "\n";
+						param += "global.concatthumbnail=true" +  "\n";
+						param += "eform.inputeventcommand=true" +  "\n";
+						param += "multiscreen.okbutton_actiontype=next" +  "\n";
+						param += "eform.usemultiscreen=true" +  "\n";
+						param += "multiscreen.extraparam=tablet=none,tablet_size=1080/1520,debugmode=true,tablet_window_rect=0/0/1080/1520" +  "\n";
+						param += "connection.pcount=1" +  "\n";
+						param += "connection.args1=filepath=C:\Users\Public\nh_prpm_nb\Domain\Doc\OZRepository\form\0010150_1.4.pdf" +  "\n";
+			
+						param += "connection.inputjson="+ document.getElementById('reportNm').value + " \n";
+						
+/*
+      			param += "viewer.childcount=1" +  "\n";
+      			
+      			param += "child1.connection.servlet=http://16.24.144.138:9000/oz80/server.ozsvrt" + "\n";
+  					param += "child1.connection.reportname=" + reportNm + ".ozr" +  "\n";
+      			param += "child1.viewer.external_functions_path=ozp://ozf/common.ozf" +  "\n";
+*/
+      	OZViewer.CreateReportEx(param, "\n");
+      }
+      
+      function GetInfo(){
+      	var ReportCode = OZViewer.Document.TriggerExternalEventByDocIndex(0, "","","f_GetTitle","");
+      	alert(ReportCode);
+		  var ReportInfo = OZViewer.Document.TriggerExternalEventByDocIndex(0, "","","f_GetFormIDInfo","");
+		  ReportInfo = ReportInfo.trim().slice(0, -1);
+		  
+
+		  $('#html').text(ReportInfo);
+
+		  	$('#grid').children().remove();
+		  	var str2 = "<tr>";
+            var array2  = ReportInfo.split("|");
+            
+            //console.log(array2);
+            for(var i=0; i < array2.length; i++){
+                //console.log(array2[i]);
+                var array3 = array2[i].split("^");
+                $('#grid').append('<tr>');
+                for(var j=0; j < array3.length; j++){
+                    $('#grid').append('<td data="'+j+'">'+array3[j].trim()+'</td>');
+                }
+                $('#grid').append('</tr>');
+                
+            }
+		  
+
+		fnMove();
+
+	}
+    </script>
+  </head>
+  <body>
+  	<input type="text" id="reportNm" name="reportNm" value=""></input>
+		<input type="button" value="ozCall" onClick="ozCall()"></input>
+		<input type="button" value="GetInfo" onClick="GetInfo()"></input>
+		<input type="button" value="ValidityCheck" onclick="ValidityCheck()">
+		<input type="button" value="xml" onclick="xml()">
+		<div id=RunOZViewer">
+			<object id ="OZViewer" classid="CLSID:0DEF32F8-170F-46f8-B1FF-4BF7443F5F25" width="96%" height="96%">
+				<param name="viewer.namespace" value="NH_NB_PPR_EFORM\ozviewer">
+				<param name="viewer.isframe" value="false">
+				<param name="viewer.emptyframe" value="true">
+			</object>
+		</div>
+
+		
+		<div>
+        <table class="table table-spriped table-bordered table-hover" data-tableName="Test Table 3">
+            <thead>
+                <tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>TYPE</th>
+                </tr>
+            </thead>
+			<tbody id="grid"></tbody>
+			</table>	
+	</div>
+
+	<div id="html"></div>
+
+
+	
+  </body>
+</html>

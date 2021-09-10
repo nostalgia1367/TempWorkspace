@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var array = [
+    {random_type4:'B', random_type5:'D', daying:'2019-07-01 01:51', count:2},
+    {random_type4:'B', random_type5:'D', daying:'2019-07-02 01:51', count:5},
+    {random_type4:'B', random_type5:'D', daying:'2019-07-01 00:51', count:1},
+    {random_type4:'B', random_type5:'D', daying:'2019-07-01 03:51', count:4},
+    {random_type4:'B', random_type5:'D', daying:'2019-07-01 02:51', count:3}
+];
+
+array.sort(function (a, b) { 
+	return a.daying < b.daying ? -1 : a.daying > b.daying ? 1 : 0;  
+    //daying을 원하는 형식의 값으로 바꾸면 된다. 비교기호를 바꾸면 내림차순.
+});
+
+console.log(array);
+
+    </script>
+</body>
+</html>

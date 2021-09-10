@@ -1,0 +1,84 @@
+key:java.vendor:::Oracle Corporation
+key:jboss.modules.system.pkgs:::org.hotswap.agent.annotation,org.hotswap.agent.command,org.hotswap.agent.config,org.hotswap.agent.logging,org.hotswap.agent.plugin,org.hotswap.agent.util,org.hotswap.agent.watch,org.hotswap.agent.versions,org.hotswap.agent.javassist
+key:sun.java.launcher:::SUN_STANDARD
+key:catalina.base:::D:\Project\workspace\xdoc_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1
+key:sun.management.compiler:::HotSpot 64-Bit Tiered Compilers
+key:catalina.useNaming:::true
+key:os.name:::Windows 10
+key:sun.boot.class.path:::D:\Project\jdk\jdk1.8.0_191\jre\lib\resources.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\rt.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\sunrsasign.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jsse.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jce.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\charsets.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jfr.jar;D:\Project\jdk\jdk1.8.0_191\jre\classes
+key:sun.desktop:::windows
+key:pprwdev51_NBPRCOT.Globals.Password:::ENC(GQHp596kW+UBWI0RwXfuM18r4kjc7Ykp)
+key:java.vm.specification.vendor:::Oracle Corporation
+key:java.runtime.version:::1.8.0_191-b12
+key:file.filepath:::/userdir/prcowas/docs/bizrule/XDoc/file/
+key:file.imgpath:::/userdir/prcowas/docs/bizrule/XDoc/image/
+key:user.name:::CS521208
+key:tomcat.util.scan.StandardJarScanFilter.jarsToScan:::log4j-core*.jar,log4j-taglib*.jar,log4javascript*.jar,slf4j-taglib*.jar
+key:shared.loader:::
+key:tomcat.util.buf.StringCache.byte.enabled:::true
+key:user.language:::ko
+key:java.naming.factory.initial:::org.apache.naming.java.javaURLContextFactory
+key:sun.boot.library.path:::D:\Project\jdk\jdk1.8.0_191\jre\bin
+key:java.version:::1.8.0_191
+key:user.timezone:::Asia/Seoul
+key:java.net.preferIPv4Stack:::true
+key:sun.arch.data.model:::64
+key:java.endorsed.dirs:::D:\Project\was\apache-tomcat-8.0.37-windows-x64\endorsed
+key:sun.cpu.isalist:::amd64
+key:sun.jnu.encoding:::MS949
+key:file.encoding.pkg:::sun.io
+key:package.access:::sun.,org.apache.catalina.,org.apache.coyote.,org.apache.jasper.,org.apache.tomcat.
+key:file.separator:::\
+key:java.specification.name:::Java Platform API Specification
+key:java.class.version:::52.0
+key:local_nh.Globals.Password:::pprsystem
+key:user.country:::KR
+key:java.home:::D:\Project\jdk\jdk1.8.0_191\jre
+key:java.vm.info:::mixed mode
+key:os.version:::10.0
+key:pprwdev51_NBPRCOT.Globals.UserName:::ENC(2+dAa8Kmq4hRwrB3Mbl35ERi4VzX44hW)
+key:path.separator:::;
+key:java.vm.version:::25.71-b01-dcevmlight-26
+key:user.variant:::
+key:java.awt.printerjob:::sun.awt.windows.WPrinterJob
+key:sun.io.unicode.encoding:::UnicodeLittle
+key:awt.toolkit:::sun.awt.windows.WToolkit
+key:package.definition:::sun.,java.,org.apache.catalina.,org.apache.coyote.,org.apache.jasper.,org.apache.naming.,org.apache.tomcat.
+key:user.script:::
+key:local_nh.Globals.Url:::jdbc:oracle:thin:@localhost:1521:orcl
+key:java.naming.factory.url.pkgs:::org.apache.naming
+key:user.home:::C:\Users\nh
+key:java.specification.vendor:::Oracle Corporation
+key:tomcat.util.scan.StandardJarScanFilter.jarsToSkip:::bootstrap.jar,commons-daemon.jar,tomcat-juli.jar,annotations-api.jar,el-api.jar,jsp-api.jar,servlet-api.jar,websocket-api.jar,catalina.jar,catalina-ant.jar,catalina-ha.jar,catalina-storeconfig.jar,catalina-tribes.jar,jasper.jar,jasper-el.jar,ecj-*.jar,tomcat-api.jar,tomcat-util.jar,tomcat-util-scan.jar,tomcat-coyote.jar,tomcat-dbcp.jar,tomcat-jni.jar,tomcat-websocket.jar,tomcat-i18n-en.jar,tomcat-i18n-es.jar,tomcat-i18n-fr.jar,tomcat-i18n-ja.jar,tomcat-juli-adapters.jar,catalina-jmx-remote.jar,catalina-ws.jar,tomcat-jdbc.jar,tools.jar,commons-beanutils*.jar,commons-codec*.jar,commons-collections*.jar,commons-dbcp*.jar,commons-digester*.jar,commons-fileupload*.jar,commons-httpclient*.jar,commons-io*.jar,commons-lang*.jar,commons-logging*.jar,commons-math*.jar,commons-pool*.jar,jstl.jar,taglibs-standard-spec-*.jar,geronimo-spec-jaxrpc*.jar,wsdl4j*.jar,ant.jar,ant-junit*.jar,aspectj*.jar,jmx.jar,h2*.jar,hibernate*.jar,httpclient*.jar,jmx-tools.jar,jta*.jar,log4j*.jar,mail*.jar,slf4j*.jar,xercesImpl.jar,xmlParserAPIs.jar,xml-apis.jar,junit.jar,junit-*.jar,ant-launcher.jar,cobertura-*.jar,asm-*.jar,dom4j-*.jar,icu4j-*.jar,jaxen-*.jar,jdom-*.jar,jetty-*.jar,oro-*.jar,servlet-api-*.jar,tagsoup-*.jar,xmlParserAPIs-*.jar,xom-*.jar
+key:java.library.path:::D:\Project\jdk\jdk1.8.0_191\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Project\jdk\jdk1.8.0_191\jre\bin;D:\app\CS521208\product\11.2.0\client_1\bin;D:\app\nh\product\11.2.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\TortoiseSVN\bin;C:\Users\nh\AppData\Local\Microsoft\WindowsApps;;.
+key:java.vendor.url:::http://java.oracle.com/
+key:java.vm.vendor:::Oracle Corporation
+key:common.loader:::"D:\Project\workspace\xdoc_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1/lib","D:\Project\workspace\xdoc_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1/lib/*.jar","D:\Project\was\apache-tomcat-8.0.37-windows-x64/lib","D:\Project\was\apache-tomcat-8.0.37-windows-x64/lib/*.jar"
+key:java.runtime.name:::Java(TM) SE Runtime Environment
+key:sun.java.command:::org.apache.catalina.startup.Bootstrap start
+key:java.class.path:::D:\Project\jdk\jdk1.8.0_191\jre\lib\resources.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\rt.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jsse.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jce.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\charsets.jar;D:\Project\jdk\jdk1.8.0_191\jre\lib\jfr.jar;D:\Project\was\apache-tomcat-8.0.37-windows-x64\bin\bootstrap.jar;D:\Project\was\apache-tomcat-8.0.37-windows-x64\bin\tomcat-juli.jar;D:\Project\jdk\jdk1.8.0_191\lib\tools.jar;D:\Project\XdocForEclipse-3.9.0-64bit\eclipse\configuration\org.eclipse.osgi\418\0\.cp\lib\javaagent-shaded.jar;D:\Project\plugin\hotswap-agent-1.4.1.jar
+key:java.vm.specification.name:::Java Virtual Machine Specification
+key:local_nh.Globals.UserName:::pprxdoc
+key:local_nh.Globals.DriverClassName:::net.sf.log4jdbc.DriverSpy
+key:java.vm.specification.version:::1.8
+key:catalina.home:::D:\Project\was\apache-tomcat-8.0.37-windows-x64
+key:ENV:::local_nh
+key:sun.cpu.endian:::little
+key:sun.os.patch.level:::
+key:java.io.tmpdir:::C:\Users\nh\AppData\Local\Temp\
+key:java.vendor.url.bug:::http://bugreport.sun.com/bugreport/
+key:server.loader:::
+key:java.awt.graphicsenv:::sun.awt.Win32GraphicsEnvironment
+key:os.arch:::amd64
+key:java.ext.dirs:::D:\Project\jdk\jdk1.8.0_191\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+key:user.dir:::D:\Project\XdocForEclipse-3.9.0-64bit\eclipse
+key:line.separator:::
+key:java.vm.name:::Dynamic Code Evolution 64-Bit Server VM
+key:wtp.deploy:::D:\Project\workspace\xdoc_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps
+key:local.Globals.DriverClassName:::com.mysql.jdbc.Driver
+key:pprwdev51_NBPRCOT.Globals.DriverClassName:::net.sf.log4jdbc.DriverSpy
+key:file.encoding:::UTF-8
+key:file.excelpath:::/userdir/prcowas/docs/bizrule/XDoc/excel/
+key:java.specification.version:::1.8
+key:pprwdev51_NBPRCOT.Globals.Url:::ENC(VtfKgHmOtW3xm5Wl3kUFI4JE44v8DjNlW9IBJvdSTGuPy1WEeMWGgUaN5DNMMMyml53avcfDSrQ=)
+key:local.Globals.Url:::jdbc:mysql://jframework.co.kr:3306/ecm3?useSSL=false&amp;useUnicode=yes&amp;characterEncoding=utf8

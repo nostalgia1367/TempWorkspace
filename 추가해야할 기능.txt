@@ -1,0 +1,111 @@
+=============================
+거래신청서 출력폼구분
+PRINT_MODE="1|11F1100001_01.prt|1|11F1010004_31.prt|1|11F1010006_21.prt|1|11F1010004_32.prt|1|11F1010006_26.prt|1|11F1010006_22.prt|1|11F1010006_11.prt"
+
+1|11F1100001_01.prt
+1|11F1010004_31.prt
+1|11F1010006_21.prt
+1|11F1010004_32.prt
+1|11F1010006_26.prt
+1|11F1010006_22.prt
+1|11F1010006_11.prt
+=============================
+e금융 출력폼구분
+PRINT_MODE="2|11F1080006_21.prt|2|11F1070107_81.prt"
+
+2|11F1080006_21.prt
+2|11F1070107_81.prt
+=============================
+제신고서-고객변경( CRM) 출력폼구분 18_9393_F_001
+PRINT_MODE="1|05F6030001.prt"
+
+1|05F6030001.prt
+=============================
+제신고서-사고신고 출력폼구분
+PRINT_MODE="1|11F1010002_21.prt|1|11F1010002_61.prt|1|10F1025102.prt|1|10F1025102.prt|1|11F1192351_11.prt"
+
+1|11F1010002_21.prt
+1|11F1010002_61.prt
+1|10F1025102.prt
+1|10F1025102.prt
+1|11F1192351_11.prt
+
+금융거래목적확인 출력폼구분
+없음
+=============================
+
+
+
+
+OnSelectForm
+OnAfterMapping
+OnChange
+conditon.xml 
+프로세스.xml 
+각 FunctionScript 함수 추가됨 
+
+XDocCore DLL 수정배포합니다 
+변경사항 
+1. 매핑을 완료한 이후 발생되는 이벤트 추가 
+XDOC_OnAfterMapping();
+2. 서식의 ChangeEvent 발생 처리
+XDOC_OnChangeEvent();
+3. 전산인자 출력구분
+XDOC_GetPrintMode()
+가이드 참조해 주시고 자세한건 개별 문의 주십시요
+위치 : 자료실>>03.전자서식>>600.참조&공유>> XDocCore.zip
+위치 : 자료실>>03.전자서식>>600.참조&공유>> XDocCore가이드.docx
+
+
+
+
+
+ - openForm : 서식 열기 
+                             - closeForm : 서식 닫기 
+                             - setData : 필드에 값 세팅
+                             - setRequired : 필드의 필수항목 속성 변경(treu, flase)
+                             - setEnable : 필드 활성화 속성 변경(treu, flase)
+
+
+
+02	AfterMapping	OnAfterMapping
+01	SelectForm	OnSelectForm
+03	FieldChange	OnChage
+
+
+서비스명 
+    bizrule/SysAdmin/downloadXML.do"
+
+
+파라미터 JSON 형태 
+
+  "fileName"    :  "condition",
+  "fileVersion"  :  "20201125001",
+  "value1"        :  "",
+  "value2"        :  ""
+
+
+
+리턴  JSON 형태
+
+  "returnCode"       : "000" ,
+  "returnMessage" : "메세지" ,
+  "returnValue1"     : "20201126001" ,
+  "returnValue2"     : "기타"	
+
+
+  returnCode    
+                   000 :  성공 (다운로드)
+                   001 :  최신버전 
+                   
+                   200 : 대상파일 없음 
+                   201 : 대상파일 제한 
+
+                   300 : 기타 서버 오류 
+                      ~ 
+
+
+                   위 내용 참조해서 정의해 주세요 
+
+
+
